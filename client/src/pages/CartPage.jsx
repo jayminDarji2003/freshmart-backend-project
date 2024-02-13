@@ -98,7 +98,7 @@ const CartPageTest = () => {
                   <p>Description: {p.description.substring(0, 30)}...</p>
                   <p>Price: ₹{p.price}</p>
                   <button
-                    className="btn btn-danger btn-sm rounded"
+                    className="btn btn-danger btn-sm rounded mb-2"
                     onClick={() => {
                       removeCartItem(p._id);
                     }}
