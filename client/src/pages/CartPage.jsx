@@ -49,43 +49,40 @@ const CartPageTest = () => {
   return (
     <Layout>
       <div className="container">
-        <div className="">
-          <div className="">
-            <h1 className="text-center bg-light p-2 mb-1">
-              {`Hello ${auth?.token && auth?.user?.name}`}
-            </h1>
-            <h4 className="text-center">
-              {cart?.length > 0 ? (
-                `You Have ${cart?.length} items in your cart ${
-                  auth?.token ? "" : "please login to checkout"
-                } `
-              ) : (
-                <div className="d-flex flex-column justify-content-center w-50 mt-2 mx-auto ">
-                  <img
-                    src="/empty_cart.jpg"
-                    alt="empty cart image"
-                    className="cartImage"
-                  />
-                  <div className="mt-5">
-                    <h4 className="font-weight-bold">
-                      You don't have any items in your cart
-                    </h4>
-                    <h6 className="text-secondary">
-                      Your favourite items are just a click away
-                    </h6>
-
-                    <Link to="/">
-                      <button className="primaryButton mt-2 fs-6">
-                        Start Shopping
-                      </button>
-                    </Link>
-                  </div>
+        <div className="text-center">
+          <h1 className="text-center bg-light p-2 mb-1">
+            {`Hello ${auth?.token && auth?.user?.name}`}
+          </h1>
+          <h4 className="text-center my-2">
+            {cart?.length > 0 ? (
+              `You Have ${cart?.length} items in your cart ${
+                auth?.token ? "" : "please login to checkout"
+              } `
+            ) : (
+              <div className="d-flex flex-column justify-content-center align-items-center mt-2">
+                <img
+                  src="/empty_cart.jpg"
+                  alt="empty cart image"
+                  className="cartImage w-50"
+                />
+                <div className="mt-3 text-center">
+                  <h4 className="font-weight-bold">
+                    You don't have any items in your cart
+                  </h4>
+                  <h6 className="text-secondary">
+                    Your favourite items are just a click away
+                  </h6>
+                  <Link to="/">
+                    <button className="primaryButton mt-3 fs-5">
+                      Start Shopping
+                    </button>
+                  </Link>
                 </div>
-              )}
-            </h4>
-          </div>
+              </div>
+            )}
+          </h4>
         </div>
-        <div className="row d-flex justify-content-center">
+        <div className="row justify-content-center">
           <div className="col-md-8">
             {cart?.map((p) => (
               <div className="row m-2 card flex-row rounded-3" key={p._id}>
@@ -93,26 +90,20 @@ const CartPageTest = () => {
                   <img
                     src={`${GET_PRODUCT_IMAGE}${p._id}`}
                     alt={p.name}
-                    style={{
-                      width: "200px",
-                      height: "200px",
-                      margin: "10px",
-                      borderRadius: "5px",
-                    }}
+                    className="img-fluid rounded"
                   />
                 </div>
-                <div className="col-md-8 px-5">
-                  <h6 className="mt-5"> Name : {p.name}</h6>
-                  <p>Description : {p.description.substring(0, 30)}...</p>
-                  <p>Price : ₹{p.price}</p>
+                <div className="col-md-8 px-4 d-flex flex-column justify-content-center">
+                  <h6 className="mt-3">Name: {p.name}</h6>
+                  <p>Description: {p.description.substring(0, 30)}...</p>
+                  <p>Price: ₹{p.price}</p>
                   <button
-                    className="btn btn-danger btn-sm px-3 rounded-3"
+                    className="btn btn-danger btn-sm rounded"
                     onClick={() => {
                       removeCartItem(p._id);
                     }}
                   >
-                    {" "}
-                    Remove{" "}
+                    Remove
                   </button>
                 </div>
               </div>
@@ -120,13 +111,13 @@ const CartPageTest = () => {
           </div>
 
           {cart?.length > 0 && (
-            <div className="col-md-8 m-5 border p-3 d-flex">
-              <div className=" w-100">
+            <div className="col-md-8 m-3 border p-3">
+              <div className="w-100">
                 <p className="fw-bold fs-4">Bills Details</p>
 
-                <div className="d-flex gap-2 justify-content-between fs-5">
+                <div className="d-flex justify-content-between align-items-center fs-5">
                   <div>
-                    <i class="fa-solid fa-gift me-2"></i>
+                    <i className="fa-solid fa-gift me-2"></i>
                     <span>Item total</span>
                   </div>
                   <div>
@@ -134,9 +125,9 @@ const CartPageTest = () => {
                   </div>
                 </div>
 
-                <div className="d-flex gap-2 justify-content-between fs-5">
+                <div className="d-flex justify-content-between align-items-center fs-5">
                   <div>
-                    <i class="fa-solid fa-truck me-2"></i>
+                    <i className="fa-solid fa-truck me-2"></i>
                     <span>Delivery Charge</span>
                   </div>
                   <div>
@@ -144,7 +135,7 @@ const CartPageTest = () => {
                   </div>
                 </div>
 
-                <div className="d-flex gap-2 justify-content-between fs-5">
+                <div className="d-flex justify-content-between fs-5">
                   <div>
                     <p className="fw-bold">Grand Total</p>
                   </div>
@@ -153,7 +144,7 @@ const CartPageTest = () => {
                   </div>
                 </div>
 
-                <div className="d-flex justify-content-center ">
+                <div className="d-flex justify-content-center">
                   <Link to="/checkout">
                     <button className="primaryButton p-2 px-4 fs-6">
                       Checkout now
