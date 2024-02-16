@@ -79,3 +79,6 @@ export const GET_RELATED_PRODUCTS = "https://freshmart-qkco.onrender.com/api/v1/
 // payment apis 
 export const GET_BRAINTREE_TOKEN_API = "https://freshmart-qkco.onrender.com/api/v1/product/braintree/token"
 export const BRAINTREE_PAYMENT_API = "https://freshmart-qkco.onrender.com/api/v1/product/braintree/payment"
+
+// user api
+export const GET_USER_API = "https://freshmart-qkco.onrender.com/api/v1/user/get-users"

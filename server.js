@@ -6,6 +6,8 @@ import connectDB from "./config/db.js"
 import authRoute from "./routers/authRoute.js"
 import categoryRoute from "./routers/categoryRoute.js"
 import productRoute from './routers/productRoute.js'
+import userRoute from './routers/userRoute.js'
+
 
 import cors from 'cors'
 
@@ -25,6 +27,7 @@ app.use(morgan('dev'))
 app.use('/api/v1/auth', authRoute)
 app.use('/api/v1/category', categoryRoute)
 app.use('/api/v1/product', productRoute)
+app.use('/api/v1/user', userRoute)
 
 
 app.get('/', (req, res) => {
